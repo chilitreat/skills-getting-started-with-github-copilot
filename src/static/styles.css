@@ -70,8 +70,36 @@ section h3 {
   color: #0066cc;
 }
 
-.activity-card p {
-  margin-bottom: 8px;
+/* 参加者セクションのスタイル追加 */
+.participants-section {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.participants-section h5 {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #3949ab;
+  font-weight: bold;
+}
+
+.participants-list {
+  list-style-type: disc;
+  margin-left: 22px;
+  margin-bottom: 0;
+  color: #444;
+  font-size: 15px;
+  padding-left: 0;
+}
+
+.participants-list li {
+  margin-bottom: 3px;
+  padding-left: 2px;
+}
+
+.participants-list li:before {
+  /* 追加の装飾が必要ならここに */
 }
 
 .form-group {
