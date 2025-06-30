@@ -20,11 +20,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // 参加者リストを作成
+        let participantsHTML = "";
+        if (details.participants && details.participants.length > 0) {
+          participantsHTML = `
+            <div class="participants-section" style="margin-top: 10px;">
+              <strong>Participants:</strong>
+              <ul style="margin: 6px 0 0 18px; padding: 0;">
+                ${details.participants.map(p => `<li style="margin-bottom: 2px;">${p}</li>`).join("")}
+              </ul>
+            </div>
+          `;
+        } else {
+          participantsHTML = `
+            <div class="participants-section" style="margin-top: 10px;">
+              <strong>Participants:</strong>
+              <span style="color: #888; font-style: italic;">No participants yet</span>
+            </div>
+          `;
+        }
+
         activityCard.innerHTML = `
-          <h4>${name}</h4>
-          <p>${details.description}</p>
-          <p><strong>Schedule:</strong> ${details.schedule}</p>
-          <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <h4 style="margin-bottom: 6px;">${name}</h4>
+          <p style="margin: 2px 0 6px 0;">${details.description}</p>
+          <p style="margin: 2px 0;"><strong>Schedule:</strong> ${details.schedule}</p>
+          <p style="margin: 2px 0 6px 0;"><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          ${participantsHTML}
         `;
 
         activitiesList.appendChild(activityCard);
